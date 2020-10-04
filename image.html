@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>khabaitech</title>
+  <style type="text/css">
+    .lightgallery1 a {
+  width: 30.33%;
+  margin: auto;
+  display: inline-block;
+  padding: 0px 20px 20px 0;
+}
+
+.lightgallery1 a img {
+  width: 100%;
+}
+
+a {
+ /* display: none; */
+}
+  </style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<div class="lightgallery1"></div>
+
+<button id="load">Load More</button>
+</body>
+<script>var links = [
+    "https://lh3.googleusercontent.com/proxy/tAZ2djukme4_5SAZHzbHacf6bEmLEZoqNwqPMyIIhLlk468z-kXgPXg1WwYwo4FKqh05vXxQMITbt_BBaM5qbn2Hc5M71FkhVoufQAwFS3IrZ266ZU8ocq3avmQv1cdIvQ",
+    "https://i.pinimg.com/originals/d1/e4/6f/d1e46f56d0e3318912f0a329f385a6f0.jpg",
+    "https://4kwallpaper.wiki/wp-content/uploads/2019/09/242113.jpg",
+    "https://www.itl.cat/pngfile/big/197-1970456_green-park-with-flowers-nature-full-hd-wallpaper.jpg",
+    "https://ak.picdn.net/shutterstock/videos/26194928/thumb/1.jpg",
+    "https://images3.alphacoders.com/690/690087.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQVgTi8_0ypbFaeVqwVND28kJjiTsR9wOMAw&usqp=CAU",
+    "https://images3.alphacoders.com/690/690087.jpg",
+    "https://eskipaper.com/images/flower-park-1.jpg",
+    "https://www.wallpaperflare.com/static/462/541/121/tulips-hyacinth-muscari-flowerbed-wallpaper.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOf4V3o4T-tNA9oqxPDjg8Hz2P0GKRhgrGsg&usqp=CAU",
+    "https://wallpaperstock.net/pretty-garden-pond-boat-steps-wallpapers_50798_1920x1200.jpg"
+];
+
+var $gallery  = $(".lightgallery1").first();
+var $loadMore = $("#load");
+
+function loadMore(e) {
+  
+  for(var i = 0; i < 3; i++) {
+     
+    if(links.length) {
+
+      var src   = links.pop();
+      var $link = $("<a>");
+      var $img  = $("<img>");
+
+      $img.attr("src", src);
+      $link.attr("href", src).addClass("item");
+      
+      $link.append($img);
+      $gallery.append($link);
+
+    } else {
+      $loadMore.hide();
+    }
+    
+  }
+  
+}
+
+$loadMore.on("click", loadMore);
+loadMore();
+</script>
+</html>
